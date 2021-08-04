@@ -1,0 +1,31 @@
+@import 'typography';
+@import 'utilities';
+@import 'variables';
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #353535;
+  font-size: 1.125rem;
+  background: #F5F5F5;
+  margin: 0;
+}
+
+.container-wrap {
+  max-width: 570px;
+  height: 100vh;
+  margin: auto;
+}
+
+.btn {
+  border-radius: 60px;
+  padding: 11px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.125rem;
+  background-color: $primary;
+
+  &:active, &:hover {
+    background-color: darken($primary, 15%);
+  }
+}

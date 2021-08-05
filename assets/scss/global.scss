@@ -1,6 +1,7 @@
 @import 'typography';
 @import 'utilities';
 @import 'variables';
+@import 'components';
 
 body {
   font-family: "Lato", sans-serif;
@@ -12,20 +13,26 @@ body {
 
 .container-wrap {
   max-width: 570px;
-  height: 100vh;
+  height: 100%;
   margin: auto;
+  padding: 0 20px;
 }
 
 .btn {
   border-radius: 60px;
   padding: 11px 20px;
+  height: 44px;
   color: white;
   text-decoration: none;
-  font-weight: bold;
   font-size: 1.125rem;
+  border: none;
   background-color: $primary;
 
   &:active, &:hover {
     background-color: darken($primary, 15%);
+  }
+
+  &__disable {
+    background-color: #BFBFBF;
   }
 }

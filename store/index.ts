@@ -35,16 +35,21 @@ export const mutations = {
 
   async setPokemons(state:any, pokemons: any) {
     state._pokemons = pokemons;
+    if(state._isFilteredByFavorite) {
+      this.filterPokemonsByFavorites(state._isFilteredByFavorite);
+    }else {
+      state._pokemonsFiltered = pokemons;
+    }
   },
 
-  filterPokemonsByFavorites(state:any, isFavoriteSelected:any = false) {
+  async filterPokemonsByFavorites(state:any, isFavoriteSelected:any = false) {
     state._isFilteredByFavorite = isFavoriteSelected
     state._pokemonsFiltered = isFavoriteSelected ?
       state._pokemons.filter( (pokemon:any) => pokemon.isFavorite) :
       state._pokemons
   },
 
-  filterPokemonsByName(state:any, name:any = false) {
-    state._pokemonsFiltered = state.pokemons.filter( (pokemon:any) => pokemon.name.includes(name))
+  async filterPokemonsByName(state:any, name:any = false) {
+    state._pokemonsFiltered = state._pokemons.filter( (pokemon:any) => pokemon.name.includes(name.toLowerCase()))
   },
 }

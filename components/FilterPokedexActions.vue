@@ -1,8 +1,14 @@
 <template>
   <div class="pokedex-actions">
     <div class="pokedex-actions__buttons container-wrap">
-      <button @click="filterByAll()" class="btn" :class="{ btn__disable: isFavorite }">All</button>
-      <button @click="filterByFavorite()" class="btn" :class="{ btn__disable: !isFavorite }">Favorites</button>
+      <button @click="filterByAll()" class="btn" :class="{ btn__disable: isFavorite }">
+        <img src="/icons/menu.svg" alt="Pikachu Hello" />
+        All
+      </button>
+      <button @click="filterByFavorite()" class="btn" :class="{ btn__disable: !isFavorite }">
+        <img src="/icons/star.svg" alt="Pikachu Hello" />
+        All
+      </button>
     </div>
   </div>
 </template>

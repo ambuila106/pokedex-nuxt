@@ -4,9 +4,31 @@
       <img src="/icons/search.svg" alt="Pikachu Hello" />
     </div>
 
-    <input type="text" placeholder="Search">
+    <input v-model="name" type="text" placeholder="Search">
   </div>
 </template>
+
+<script>
+import {  mapMutations } from 'vuex';
+
+export default {
+  data() {
+    return {
+      name: ''
+    }
+  },
+
+  methods: {
+    ...mapMutations(['filterPokemonsByName'])
+  },
+
+  watch: {
+    name: function () {
+       this.filterPokemonsByName(this.name)
+    }
+  }
+}
+</script>
 
 <style>
 .nuxt-logo {

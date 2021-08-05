@@ -1,11 +1,25 @@
 export const state = () => ({
   _pokemons: [],
   _pokemonsFiltered: [],
+  _isFilteredByFavorite: false,
+  _isFilteredByName: false,
 });
 
 export const getters = {
   getPokemonsFiltered(state:any) {
       return state._pokemonsFiltered
+  },
+
+  getPokemons(state:any) {
+    return state._pokemons
+  },
+
+  getIsFilteredByName(state:any) {
+    return state._isFilteredByName
+  },
+
+  getIsFilteredByFavorite(state:any) {
+    return state._isFilteredByFavorite
   },
 }
 
@@ -21,10 +35,10 @@ export const mutations = {
 
   async setPokemons(state:any, pokemons: any) {
     state._pokemons = pokemons;
-    state._pokemonsFiltered = pokemons;
   },
 
   filterPokemonsByFavorites(state:any, isFavoriteSelected:any = false) {
+    state._isFilteredByFavorite = isFavoriteSelected
     state._pokemonsFiltered = isFavoriteSelected ?
       state._pokemons.filter( (pokemon:any) => pokemon.isFavorite) :
       state._pokemons

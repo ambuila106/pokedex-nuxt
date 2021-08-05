@@ -34,6 +34,10 @@ export default {
         return this.$store.getters.getPokemonsFiltered
       },
 
+      isFilteredByName() {
+        return this.$store.getters.getIsFilteredByName
+      },
+
       ...mapGetters({
         pokemons2: 'getPokemonsFiltered',
       })
